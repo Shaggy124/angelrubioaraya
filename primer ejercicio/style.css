@@ -1,0 +1,19 @@
+        .azul{
+            color: rgb(45, 35, 136);
+            font-size: 30px;
+        }
+        .rojo{
+          color: rgb(230, 3, 3);
+          font-size: 20px;
+      }
+        table, th, td {
+            border:1px solid black;
+          }
+.perro{
+  background-color: darkcyan;
+  font-size: 50px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+
+}
