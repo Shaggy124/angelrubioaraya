@@ -1,0 +1,36 @@
+body{
+    background-color: orange;
+}
+.custom-carousel {
+    max-width: 100%; 
+    margin: auto; 
+}
+.nav{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    background-color: white;
+    color: orange;
+}
+.custom-nav-pills .nav-link{
+    color:orange;
+    font-size: 40px;
+    
+}
+.custom-nav-pills .nav-link.active{
+    background-color: orange;
+    color: black;
+    font-size: 40px;
+}
+.carousel-caption-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 120px;
+    text-align: center;
+    color: #0c0c0c;
+}
+h2 {
+    padding-bottom: 30px;
+    color: black; 
+}
