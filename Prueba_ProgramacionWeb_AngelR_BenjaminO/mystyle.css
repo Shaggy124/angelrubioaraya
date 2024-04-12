@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(255, 81, 0);
+    background-color: blue;
 }
 .custom-carousel {
     max-width: 100%; 
@@ -16,8 +16,8 @@ body{
     font-size: 20px;
 }
 .custom-nav-pills .nav-link.active{
-    background-color:yellow;
-    color: orange;
+    background-color:white;
+    color: blue;
     font-size: 20px;
 }
 .carousel-caption-top {
@@ -29,5 +29,6 @@ body{
     text-align: center;
     color: #0c0c0c;}
 .btn{
-    background-color: rgb(255, 81, 0);
+    background-color: white;
+    color: black;
 }
