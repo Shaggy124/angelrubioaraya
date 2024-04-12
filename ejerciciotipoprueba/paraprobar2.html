@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión Falso</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .login-container {
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 login-container">
+        <h2 class="text-center mb-4">Iniciar Sesión</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <input type="text" class="form-control" id="username" placeholder="Nombre de Usuario">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+        </form>
+        <div id="message" class="mt-3 text-center"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Verificación de credenciales falsas (puedes modificar esto según tu necesidad)
+      if (username === 'angelrubio' && password === 'contraseña123') {
+        showMessage('success', 'Inicio de sesión exitoso.');
+      } else {
+        showMessage('error', 'Nombre de usuario o contraseña incorrectos.');
+      }
+    });
+
+    function showMessage(type, message) {
+      var messageDiv = document.getElementById('message');
+      messageDiv.innerHTML = '';
+      var alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+      var alertHTML = '<div class="alert ' + alertClass + '" role="alert">' + message + '</div>';
+      messageDiv.innerHTML = alertHTML;
+    }
+  </script>
+
+</body>
+</html>

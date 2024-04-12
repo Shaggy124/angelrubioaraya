@@ -1,5 +1,5 @@
 body{
-    background-color: red;
+    background-color: rgb(255, 81, 0);
 }
 .custom-carousel {
     max-width: 100%; 
@@ -8,19 +8,17 @@ body{
 }
 .nav{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: x-large;
-    background-color: yellow;
+    font-size: large;
     color: red;
 }
 .custom-nav-pills .nav-link{
     color:red;
-    font-size: 40px;
-    
+    font-size: 20px;
 }
 .custom-nav-pills .nav-link.active{
     background-color:yellow;
     color: white;
-    font-size: 40px;
+    font-size: 20px;
 }
 .carousel-caption-top {
     position: absolute;
@@ -30,3 +28,6 @@ body{
     padding-top: 120px;
     text-align: center;
     color: #0c0c0c;}
+.btn{
+    background-color: rgb(255, 81, 0);
+}
