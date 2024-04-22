@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Tarjetas con Botones</title>
+<style>
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+</style>
+</head>
+<body>
+<div id="cardContainer"></div>
+
+<script>
+// Función para generar el HTML de las tarjetas
+function generarTarjetas() {
+  var tarjetasHTML = '';
+  for (var i = 1; i <= 3; i++) {
+    tarjetasHTML += `
+      <div class="card">
+        <h2>Titulo `+i+` Tarjeta</h2>
+        <p>Datos `+i+` Tarjeta</p>
+        <button onclick="mostrarMensaje(${i})">Mostrar Contenido</button>
+      </div>
+    `;
+  }
+  return tarjetasHTML;
+}
+
+// Función para mostrar un mensaje con el contenido de la tarjeta
+function mostrarMensaje(indice) {
+  var mensaje = datosTarjetas[indice].contenido;
+  alert(mensaje);
+}
+
+// Insertar las tarjetas en el contenedor
+document.getElementById('cardContainer').innerHTML = generarTarjetas();
+</script>
+</body>
+</html>

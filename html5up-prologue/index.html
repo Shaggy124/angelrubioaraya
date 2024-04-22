@@ -194,6 +194,7 @@
 					</ul>
 
 			</div>
+			
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -243,7 +244,20 @@
 				//	console.log(textej);
 				//}
 				//varsumativa();
-
+				
+				function generarTarjetas() {
+				var tarjetasHTML = '';
+				for (var i = 0; i <= 3; i++) {
+					tarjetasHTML += `
+					<div class="card">
+						<h2>${datosTarjetas[i].titulo}</h2>
+						<p>${datosTarjetas[i].contenido}</p>
+					</div>
+					`;
+				}
+				return tarjetasHTML;
+				}
+				document.getElementById('cardContainer').innerHTML = generarTarjetas();
 
 			</script>
 			
