@@ -1,39 +1,123 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<title>Verificación de Datos</title>
+<style>
+    .error {
+        color: red;
+    }
+</style>
 </head>
 <body>
 
-<form>
-  <div class="form-group">
-    <label for="input1">Nombre:</label><br>
-    <input type="text" id="nombre" name="input1"><br>
-  </div>
-  <div class="form-group">
-    <label for="input2">Email:</label><br>
-    <input type="text" id="email" name="input2"><br>
-  </div>
-  <div class="form-group">
-    <label for="input3">Contraseña:</label><br>
-    <input type="text" id="contraseña" name="input3"><br>
-    <label for="input3">Confirmar Contraseña:</label><br>
-    <input type="text" id="confirmar" name="input4"><br><br>
-  </div>
-  <button type="submit" id="enviar">Enviar</button>
-</div>
+<h2>Verificación de Datos</h2>
 
-  <script>
-    $(document).ready(function(){
-      event.preventDefault()
-    })
-  </script>
+<form id="formulario">
+    <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre">
+        <span class="error" id="errorNombre"></span>
+    </div>
+    <br>
+    <div>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido">
+        <span class="error" id="errorApellido"></span>
+    </div>
+    <br>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email">
+        <span class="error" id="errorEmail"></span>
+    </div>
+    <br>
+    <div>
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono">
+        <span class="error" id="errorTelefono"></span>
+    </div>
+    <br>
+    <button type="submit">Enviar</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Función para validar el nombre
+    function validarNombre() {
+        var nombre = $('#nombre').val();
+        if (nombre.trim() === '') {
+            $('#errorNombre').text('El nombre es obligatorio');
+        } else {
+            $('#errorNombre').text('');
+        }
+    }
+
+    // Función para validar el apellido
+    function validarApellido() {
+        var apellido = $('#apellido').val();
+        if (apellido.trim() === '') {
+            $('#errorApellido').text('El apellido es obligatorio');
+        } else {
+            $('#errorApellido').text('');
+        }
+    }
+
+    // Función para validar el email
+    function validarEmail() {
+        var email = $('#email').val();
+        if (email.trim() === '') {
+            $('#errorEmail').text('El email es obligatorio');
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            $('#errorEmail').text('El email ingresado no es válido');
+        } else {
+            $('#errorEmail').text('');
+        }
+    }
+
+    // Función para validar el teléfono
+    function validarTelefono() {
+        var telefono = $('#telefono').val();
+        if (telefono.trim() === '') {
+            $('#errorTelefono').text('El teléfono es obligatorio');
+        } else if (isNaN(telefono)) {
+            $('#errorTelefono').text('El teléfono debe ser un número');
+        } else {
+            $('#errorTelefono').text('');
+        }
+    }
+
+    // Validar campos al perder el foco
+    $('#nombre').blur(validarNombre);
+    $('#apellido').blur(validarApellido);
+    $('#email').blur(validarEmail);
+    $('#telefono').blur(validarTelefono);
+
+    // Validar formulario al enviar
+    $('#formulario').submit(function(event){
+        event.preventDefault();
+
+        // Validar todos los campos
+        validarNombre();
+        validarApellido();
+        validarEmail();
+        validarTelefono();
+
+        // Enviar formulario si no hay errores
+        if ($('#errorNombre').text() === '' && $('#errorApellido').text() === '' &&
+            $('#errorEmail').text() === '' && $('#errorTelefono').text() === '') {
+            alert('¡Formulario enviado correctamente!');
+            // Aquí puedes enviar el formulario usando AJAX
+            $('#nombre').val('');
+            $('#apellido').val('');
+            $('#email').val('');
+            $('#telefono').val('');
+        }
+    });
+});
+</script>
+
 </body>
 </html>
