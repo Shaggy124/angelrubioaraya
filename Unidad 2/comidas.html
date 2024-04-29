@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="enviar">Traer Datos</button>
+    <div id="categorias"></div>
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    
+    <script>
+        $("#enviar").click(function(){
+            
+            $.get("https://www.themealdb.com/api/json/v1/1/categories.php",function(data){
+
+                $.each(data.categories,function(i,item){
+
+                    $("#categorias").append("<tr><td>"+item.idCategory+"</tr><td>"+item.strCategory+
+                                    "</tr><td><img src='"+item.strCategoryThumb+"'>"+
+                                    "</tr><td>"+item.strCategoryDescription+"</tr></td>")
+
+                });
+            })
+        });
+            
+    </script>
+</body>
+</html>
