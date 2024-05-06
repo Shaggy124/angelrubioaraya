@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Food</title>
+</head>
+<body>
+    <script src="assets/js/jquery.min.js"></script>
+    <script>
+        const settings = {
+	async: true,
+	crossDomain: true,
+	url: 'https://chinese-food-db.p.rapidapi.com/5',
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'c174a3fd0fmshf7c546246cb01f3p1cafacjsn3f2ca870abe7',
+		'X-RapidAPI-Host': 'chinese-food-db.p.rapidapi.com'
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+    console.log(response.description);
+});
+    </script>
+</body>
+</html>
