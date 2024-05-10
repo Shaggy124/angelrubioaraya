@@ -24,7 +24,7 @@
         $.ajax(settings).done(function (response) {
             console.log(response);
             $.each(response,function(i,item){
-                $("#peli").append("<h1>"+item.rank+"-"+item.title+"</h1>")
+                $("#peli").append("<h1>"+item.rank+")<br>"+"<img src='"+item.image+"'><br>"+item.title+"</h1>")
             }
             )
         });
