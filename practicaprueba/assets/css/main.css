@@ -1327,7 +1327,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 300;
-		color: #777777;
+		color: #101010;
 		font-size: 20pt;
 		line-height: 1.75em;
 	}
@@ -1366,7 +1366,7 @@ input, select, textarea {
 
 	strong, b, h1, h2, h3, h4, h5, h6 {
 		font-weight: 400;
-		color: #363636;
+		color: #000000;
 	}
 
 	h1 {
@@ -1466,7 +1466,7 @@ input, select, textarea {
 	form label {
 		display: block;
 		font-weight: 400;
-		color: #363636;
+		color: #131212;
 		margin: 0 0 1em 0;
 	}
 
@@ -1533,7 +1533,7 @@ input, select, textarea {
 
 		header > p {
 			margin: 0.5em 0 0 0;
-			color: #aaa;
+			color: #0c0c0c;
 		}
 
 		@media screen and (max-width: 736px) {
@@ -1820,7 +1820,7 @@ input, select, textarea {
 				display: block;
 				position: absolute;
 				background: #222222;
-				color: #ffffff;
+				color: #0f0f0f;
 				top: -2.75em;
 				font-size: 0.3em;
 				height: 2.25em;
@@ -1956,6 +1956,7 @@ input, select, textarea {
 	}
 
 		#main > .panel {
+			background-color: rgb(248, 148, 71);
 			-moz-transition: opacity 0.25s ease-in-out;
 			-webkit-transition: opacity 0.25s ease-in-out;
 			-ms-transition: opacity 0.25s ease-in-out;
@@ -1985,6 +1986,7 @@ input, select, textarea {
 				display: -webkit-flex;
 				display: -ms-flex;
 				display: flex;
+				background-color: rgb(248, 148, 71);
 				-moz-flex-direction: row;
 				-webkit-flex-direction: row;
 				-ms-flex-direction: row;
@@ -2049,7 +2051,7 @@ input, select, textarea {
 						height: 2.75em;
 						background: #000;
 						background: rgba(0, 0, 0, 0.75);
-						color: #ffffff;
+						color: #131212;
 						text-align: center;
 						line-height: 2.75em;
 						font-size: 1.5em;

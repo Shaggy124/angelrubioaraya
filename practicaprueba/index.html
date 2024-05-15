@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Astral by HTML5 UP</title>
+		<title>RECOMIENDA FUN</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -18,10 +18,10 @@
 			<div id="wrapper">
 
 				<!-- Nav -->
-					<nav id="nav">
-						<a href="#" class="icon solid fa-home"><span>Inicio</span></a>
-						<a href="#servicios" class="icon solid fa-map"><span>Servicios</span></a>
-						<a href="#" class="icon solid fa-users"><span>Nosotros</span></a>
+				<nav id="nav-bar">
+						<a href="#home" class="icon solid fa-home"><span>Inicio</span></a>
+						<a href="#topmovies" class="icon solid fa-film"><span>Top 100 Pelis</span></a>
+						<a href="#nosotros" class="icon solid fa-users"><span>Nosotros</span></a>
 						<a href="#contact" class="icon solid fa-envelope"><span>Contactenos</span></a>
 					</nav>
 
@@ -31,19 +31,19 @@
 						<!-- Me -->
 							<article id="home" class="panel intro">
 								<header>
-									<h1>Turismo Extremo Sur</h1>
-									<p>viajes a caballo y caminatas en Punta Arenas</p>
+									<h1>Recomienda FUN </h1>
+									<p>Peliculas y Musica Populares para Tu Interes</p>
 								</header>
-								<a href="#servicios" class="jumplink pic">
-									<span class="arrow icon solid fa-chevron-right"><span>See my work</span></span>
-									<img src="images/me.jpg" alt="" />
+								<a href="#topmovies" class="jumplink pic">
+									<span class="arrow icon solid fa-chevron-right"><span></span></span>
+									<img src="images/logo1.jpg" alt="" />
 								</a>
 							</article>
 
 						<!-- Work -->
-							<article id="servicios" class="panel">
+							<article id="topmovies" class="panel">
 								<header>
-									<h2>Nuestros Servicios</h2>
+									<h2>Top 100 Peliculas de Todos los Tiempos</h2>
 								</header>
 								<p>
 									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
@@ -51,51 +51,22 @@
 									luctus elit eget interdum.
 								</p>
 								<section>
-									<div class="row">
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="col-4 col-6-medium col-12-small">
-											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
+									<div id="peli" class="row">	
 									</div>
 								</section>
+							</article>
+
+							<article id="nosotros" class="panel">
+
 							</article>
 
 						<!-- Contact -->
 							<article id="contact" class="panel">
 								<header>
-									<h2>Contacto</h2>
+									<h2>Registro</h2>
+									<p>
+										Subscribase para Recibir Recomendaciones
+									</p>
 								</header>
 								<form action="#" method="post">
 									<div>
@@ -107,19 +78,10 @@
 												<input type="text" name="lastname" placeholder="Apellido" />
 											</div>
 											<div class="col-6 col-12-medium">
-												<input type="text" name="city" placeholder="Ciudad" />
-											</div>
-											<div class="col-6 col-12-medium">
-												<input type="text" name="country" placeholder="Pais" />
-											</div>
-											<div class="col-6 col-12-medium">
 												<input type="text" name="email" placeholder="Correo Electronico" />
 											</div>
 											<div class="col-12">
-												<input type="text" name="subject" placeholder="Asunto" />
-											</div>
-											<div class="col-12">
-												<textarea name="message" placeholder="Escriba Aqui" rows="6"></textarea>
+												<textarea name="message" placeholder="Escriba Aqui su Opinion" rows="6"></textarea>
 											</div>
 											<div class="col-12">
 												<input type="submit" value="Enviar" />
@@ -146,6 +108,28 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				const settings = {
+				async: true,
+				crossDomain: true,
+				url: 'https://imdb-top-100-movies.p.rapidapi.com/',
+				method: 'GET',
+				headers: {
+					'X-RapidAPI-Key': 'c174a3fd0fmshf7c546246cb01f3p1cafacjsn3f2ca870abe7',
+					'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+				}
+			};
+
+			$.ajax(settings).done(function (response) {
+				console.log(response);
+				$.each(response,function(i,item){
+					$("#peli").append("<div class='col-4 col-6-medium col-12-small'><div class='card>'<h5 class='card-title'>"+item.rank+" - "+item.title+"</h5><img src='"+item.image+"'class='card-img-top image fit'></div></div>")
+				}
+				)
+			});
+
+			</script>
 
 	</body>
 </html>
