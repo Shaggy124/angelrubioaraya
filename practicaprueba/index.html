@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
 	<head>
 		<title>RECOMIENDA FUN</title>
@@ -21,14 +16,15 @@
 				<nav id="nav-bar">
 						<a href="#home" class="icon solid fa-home"><span>Inicio</span></a>
 						<a href="#topmovies" class="icon solid fa-film"><span>Top 100 Pelis</span></a>
+						<a href="#topsongs" class="icon solid fa-record-vinyl"><span>Top 100 Canciones</span></a>
 						<a href="#nosotros" class="icon solid fa-users"><span>Nosotros</span></a>
-						<a href="#contact" class="icon solid fa-envelope"><span>Contactenos</span></a>
+						<a href="#registro" class="icon solid fa-envelope"><span>Registrar</span></a>
 					</nav>
 
 				<!-- Main -->
 					<div id="main">
 
-						<!-- Me -->
+						<!-- Inicio -->
 							<article id="home" class="panel intro">
 								<header>
 									<h1>Recomienda FUN </h1>
@@ -40,7 +36,7 @@
 								</a>
 							</article>
 
-						<!-- Work -->
+						<!-- Vista Top 100 Peliculas -->
 							<article id="topmovies" class="panel">
 								<header>
 									<h2>Top 100 Peliculas de Todos los Tiempos</h2>
@@ -55,13 +51,17 @@
 									</div>
 								</section>
 							</article>
+						<!--Lista Top 100 Canciones-->
+							<article id="topsongs" class="panel">
 
+							</article>
+						<!--Panel Vista Nosotros-->
 							<article id="nosotros" class="panel">
 
 							</article>
 
-						<!-- Contact -->
-							<article id="contact" class="panel">
+						<!-- Formulario Registro -->
+							<article id="registro" class="panel">
 								<header>
 									<h2>Registro</h2>
 									<p>
@@ -81,7 +81,7 @@
 												<input type="text" name="email" placeholder="Correo Electronico" />
 											</div>
 											<div class="col-12">
-												<textarea name="message" placeholder="Escriba Aqui su Opinion" rows="6"></textarea>
+												<textarea name="message" placeholder="Escriba Aqui que Le Parecio" rows="6"></textarea>
 											</div>
 											<div class="col-12">
 												<input type="submit" value="Enviar" />
@@ -93,7 +93,7 @@
 
 					</div>
 
-				<!-- Footer -->
+				<!-- Pie de Pagina -->
 					<div id="footer">
 						<ul class="copyright">
 							<li>&copy; Formas de Contactarnos: Fono:+123456789 Email:ejemplo1@sinnombre.cl</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -124,7 +124,7 @@
 			$.ajax(settings).done(function (response) {
 				console.log(response);
 				$.each(response,function(i,item){
-					$("#peli").append("<div class='col-4 col-6-medium col-12-small'><div class='card>'<h5 class='card-title'>"+item.rank+" - "+item.title+"</h5><img src='"+item.image+"'class='card-img-top image fit'></div></div>")
+					$("#peli").append("<div class='col-3 col-6-medium col-12-small'><div class='card>'<h5 class='card-title'>"+item.rank+" - "+item.title+"</h5><img src='"+item.image+"'class='card-img-top image fit'></div></div>")
 				}
 				)
 			});

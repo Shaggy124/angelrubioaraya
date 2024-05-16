@@ -1870,6 +1870,55 @@ input, select, textarea {
 			}
 
 		}
+		#nav {
+			text-align: center;
+			height: 4.25em;
+			cursor: default;
+		}
+/* Search */
+
+/*#buscarbarra {
+	border-color: #e7a708;
+	border: 10px;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .search {
+	font-size: 1.5rem;
+	margin: 1.5em auto 3em;
+	max-width: 80%;
+  }
+  
+  .search [type='search'] {
+	background-color: #eae7e2;
+	color: #070707;
+	padding: 0.5em 2em;
+	text-align: center;input {
+		border: 0;
+		font: inherit;
+		margin: 0;
+		padding: 0;
+	  }
+	  
+	  .search {
+		font-size: 1.5rem;
+		margin: 1.5em auto 3em;
+		max-width: 80%;
+	  }
+	  
+	  .search [type='search'] {
+		background-color: #131b20;
+		color: #fff;
+		padding: 0.5em 2em;
+		text-align: center;
+		width: 100%;
+	  }
+	width: 100%;
+  }*/
+	
+			
 
 /* Wrapper */
 
