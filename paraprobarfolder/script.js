@@ -1,24 +1,30 @@
-document.getElementById("btnConsultarClima").addEventListener("click", function() {
-    // Llamada a la API para obtener el clima de Punta Arenas para los próximos 10 días
-    fetch("https://api.boostr.cl/weather/SCCI.json")
-    .then(response => response.json())
-    .then(data => {
-        // Mostrar el resultado en la página
-        mostrarClima(data);
-    })
-    .catch(error => {
-        console.error("Ha ocurrido un error:", error);
-    });
-});
-
-function mostrarClima(data) {
-    // Mostrar los datos del clima en el elemento con id "resultado"
-    document.getElementById("resultado").innerHTML = `
-        <h2>Clima en Punta Arenas para los próximos 10 días:</h2>
-        <ul>
-            <li>Día 1: ${data.dia1}</li>
-            <li>Día 2: ${data.dia2}</li>
-            <!-- Continuar con los demás días -->
-        </ul>
-    `;
-}
+    function subirDatos(){
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: 'https://yahoo-weather5.p.rapidapi.com/weather?location=puntaarenas&format=json&u=c',
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'c174a3fd0fmshf7c546246cb01f3p1cafacjsn3f2ca870abe7',
+                'X-RapidAPI-Host': 'yahoo-weather5.p.rapidapi.com'
+            }
+            };
+        
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+                console.log(response.forecasts);
+                
+                const forecast = response.forecasts;
+                
+                forecast.forEach(function(item){
+                    const day = item.day;
+                    const tempHigh = item.high;
+                    const tempMin = item.low;
+                    const estado = item.text;
+                    $("#clima").append("<h1> Dia: "+day+" - Temperatura Maxima: "+tempHigh+"°C - Temperatura Minima: "+tempMin+"°C Estado: "+estado+"</h1>")
+        
+                });
+               
+            });
+    }
+    
