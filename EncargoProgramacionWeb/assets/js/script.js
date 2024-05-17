@@ -1,3 +1,4 @@
+/*Funcion Lista Peliculas*/
 function peliculas(){
     const pelis = {
         async: true,
@@ -50,19 +51,20 @@ function peliculas(){
     });
 }
 
+/*Funcion Lista Canciones*/
 function canciones(){
-    const musica = {
+    const settings = {
         async: true,
         crossDomain: true,
         url: 'https://billboard-api5.p.rapidapi.com/api/charts/hot-100?week=2024-05-16',
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'c174a3fd0fmshf7c546246cb01f3p1cafacjsn3f2ca870abe7',
+            'X-RapidAPI-Key': '6610deeff9mshe390d415628123ep1c9189jsn864b3f9eb974',
             'X-RapidAPI-Host': 'billboard-api5.p.rapidapi.com'
         }
     };
-
-    $.ajax(musica).done(function (response) {
+    
+    $.ajax(settings).done(function (response) {
         console.log(response);
         $.each(response.chart.entries, function(i, item){
             $("#cancion").append(
@@ -77,3 +79,41 @@ function canciones(){
         });
     });
 }
+/*Validaciones de Inputs de Caracter*/
+$("#nombre").on('blur',function(){
+    const hasNumber = /\d/;
+    if(hasNumber.test($("#nombre").val())){
+        alert('Numeros no Permitidos, Ingrese SOLO Caracteres')
+        $("#nombre").val('')
+    }
+})
+$("#apellido").on('blur',function(){
+    const hasNumber = /\d/;
+    if(hasNumber.test($("#apellido").val())){
+        alert('Numeros no Permitidos, Ingrese SOLO Caracteres')
+        $("#apellido").val('')
+    }
+})
+/*Validacion de Correo*/
+$("#envio").click(function(event){
+    var nombre = $("#nombre").val().trim();
+    var apellido = $("#apellido").val().trim();
+    var correo = $("#correo").val().trim();
+    var regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Verificar si los campos obligatorios están vacíos
+    if (nombre === '' || apellido === '' || correo === '') {
+        alert('Todos los campos obligatorios deben ser completados.');
+        event.preventDefault();
+    } else if (!regexCorreo.test(correo)) {
+        // Si el correo electrónico no es válido, mostramos un mensaje de error
+        alert('Por favor, introduce un correo electrónico válido.');
+        event.preventDefault();
+    } else {
+        alert('Formulario de Registro Enviado Correctamente!!');
+        $("#nombre").val('');
+        $("#apellido").val('');
+        $("#correo").val('');
+        $("#opinion").val('');
+        event.preventDefault(); 
+    }
+});

@@ -16,7 +16,7 @@
 		<!-- Wrapper-->
 			<div id="wrapper">
 
-				<!-- Nav -->
+				<!-- Nav-Bar -->
 				<nav class="nav-bar" id="nav">
 						<a href="#home" class="icon solid fa-home"><span>Inicio</span></a>
 						<a href="#topmovies" class="icon solid fa-film"><span>Peliculas</span></a>
@@ -39,7 +39,7 @@
 								</header>
 							</article>
 
-						<!-- Vista Top 100 Peliculas -->
+						<!-- Vista Top 100 Peliculas con Modal -->
 							<article id="topmovies" class="panel">
 								<header>
 									<h2>Top 100 Peliculas de Todos los Tiempos</h2>
@@ -75,7 +75,7 @@
 									</div>
 								</section>
 							</article>
-						<!--Panel Vista Nosotros-->
+						<!--Panel Vista Nosotros con Carrusel-->
 							<article id="historia" class="panel">
 								<header>
 									<h2>Saber la Historia del Entretenimiento</h2>
@@ -129,22 +129,23 @@
 									<div class="container">
 										<div class="row">
 											<div class="col-6 col-12-medium">
-												<input type="text" name="nombre" placeholder="Nombre" />
+												<input id="nombre" type="text" name="nombre" placeholder="Nombre" required/>
 											</div>
 											<div class="col-6 col-12-medium">
-												<input type="text" name="apellido" placeholder="Apellido" />
+												<input id="apellido" type="text" name="apellido" placeholder="Apellido" required/>
 											</div>
 											<div class="col-6 col-12-medium">
-												<input type="text" name="correo" placeholder="Correo Electronico" />
+												<input id="correo" type="email" name="correo" placeholder="Correo Electronico" required/>
 											</div>
 											<div class="col-12">
-												<textarea name="message" placeholder="Escriba Aqui que Le Parecio" rows="6"></textarea>
+												<textarea id="opinion" name="message" placeholder="Escriba Aqui que Le Parecio" rows="6"></textarea>
 											</div>
 											<div class="col-12">
-												<input type="submit" value="Enviar" />
+												<button id="envio" type="submit">Enviar</button>
 											</div>
 										</div>
 									</div>
+								</form>
 								<!--</form>-->
 							</article>
 
@@ -166,5 +167,8 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/script.js"></script>
+			<script>
+				
+			</script>
 	</body>
 </html>
