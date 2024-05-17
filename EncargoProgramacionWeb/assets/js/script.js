@@ -15,7 +15,7 @@ function peliculas(){
         console.log(response);
         $.each(response, function(i, item){
             $("#peli").append(
-                `<div class='col-3 col-6-medium col-12-small'>
+                `<div class='col-6 col-6-medium col-12-small'>
                     <div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
                         <h5 class='card-title'>${item.rank}) ${item.title}</h5>
                         <img src='${item.image}' class='card-img-top image fit'>
@@ -68,7 +68,7 @@ function canciones(){
         console.log(response);
         $.each(response.chart.entries, function(i, item){
             $("#cancion").append(
-                `<div class='col-3 col-6-medium col-12-small' style='background-color:rgb(248, 148, 71)>
+                `<div class='col-6 col-6-medium col-12-small' style='background-color:rgb(248, 148, 71)>
                     <div class='card' >
                         <h5 class='card-title'>${item.rank}) ${item.artist}</h5>
                         <img src='${item.cover}' class='card-img-top image fit'>
