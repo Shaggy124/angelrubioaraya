@@ -18,3 +18,7 @@ def listadoSQL(request):
     context={"alumnos":alumnos}
     return render(request, 'alumnos/listadoSQL.html', context)
 
+def crud(request):
+    alumnos= Alumno.objects.all()
+    context={"alumnos":alumnos}
+    return render(request, 'alumnos/alumnos_list.html', context)
