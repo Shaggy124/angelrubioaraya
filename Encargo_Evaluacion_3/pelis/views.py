@@ -12,3 +12,4 @@ def index(request):
     canci= Cancion.objects.all()
     context={"cancion":canci}
     return render(request, 'pelis/index.html', context)
+

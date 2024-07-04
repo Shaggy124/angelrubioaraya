@@ -55,44 +55,44 @@
 									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
 									luctus elit eget interdum.
 								</p>
-                                <section>
-                                    <div id="" class="row">
+								<section>
+									<div id="" class="row">
 									{% for pelis in peliculas %}
-    
-                                            <div class='col-6 col-6-medium col-12-small'>
-                                                <div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
-                                                    <h5 class='card-title'>{{pelis.ranking}} - {{pelis.titulo}}</h5>
-                                                    <img src='{{pelis.image}}' class='card-img-top image fit'>
-                                                    <button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{pelis.ranking}}">
-                                                        Saber Más
-                                                    </button>
-                                                </div>
-                                                <div class="modal fade" id="modal_{{pelis.ranking}}" tabindex="-1" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">{{pelis.titulo}}</h5>
-                                                                <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Año de Estreno: {{pelis.anio}}<br><br>
-                                                                Genero: {{pelis.id_genero}}<br><br>
-                                                                Calificacion: {{pelis.calificacion}}<br><br>
-                                                                Descripción: {{pelis.descripcion}}
-                            
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                    {% endfor %}
-                                    </div>
+							
+											<div class='col-6 col-6-medium col-12-small'>
+												<div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
+													<h5 class='card-title'>{{pelis.ranking}} - {{pelis.titulo}}</h5>
+													<img src='{{pelis.image}}' class='card-img-top image fit'>
+													<button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{pelis.ranking}}">
+														Saber Más
+													</button>
+												</div>
+												<div class="modal fade" id="modal_{{pelis.ranking}}" tabindex="-1" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title">{{pelis.titulo}}</h5>
+																<button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
+															<div class="modal-body">
+																Año de Estreno: {{pelis.anio}}<br><br>
+																Genero: {{pelis.id_genero}}<br><br>
+																Calificacion: {{pelis.calificacion}}<br><br>
+																Descripción: {{pelis.descripcion}}
+							
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+							
+									{% endfor %}
+									</div>
 								</section>
 							</article>
 						<!--Lista Top 100 Canciones-->
