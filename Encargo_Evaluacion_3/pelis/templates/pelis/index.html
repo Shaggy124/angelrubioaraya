@@ -1,188 +1,201 @@
+{% extends "pelis/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!--{% load static %}--> <!--con esto se invoca el contenido de /static/-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOPS ENTRETENIMIENTO</title>
-    <noscript><link rel="stylesheet" href="{% static 'myapp/css/noscript.css' %}" /></noscript>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{% static 'myapp/css/main.css' %}">
-    <!--<script src="{% static 'myapp/js/main.js' %}" ></script>-->
-</head>
-<body>
-
-
-    <body class="is-preload">
-		
-		<!-- Wrapper-->
-			<div id="wrapper">
-
-				<!-- Nav-Bar -->
-				<nav class="nav-bar" id="nav">
-						<a href="#home" class="icon solid fa-home"><span>Inicio</span></a>
-						<a href="#topmovies" class="icon solid fa-film"><span>Peliculas</span></a>
-						<a href="#topsongs" class="icon solid fa-record-vinyl"><span>Canciones</span></a>
-						<a href="#historia" class="icon solid fa-landmark"><span>Historia</span></a>
-						<a href="#registro" class="icon solid fa-envelope"><span>Registrar</span></a>
-					</nav>
+{%block content %}
+	
+	<!-- Nav-Bar -->
+			<nav class="nav-bar" id="nav">
+				<a href="#home" class="icon solid fa-home"><span>Inicio</span></a>
+				<a href="#topmovies" class="icon solid fa-film"><span>Peliculas</span></a>
+				<a href="#topsongs" class="icon solid fa-record-vinyl"><span>Canciones</span></a>
+				<a href="#historia" class="icon solid fa-landmark"><span>Historia</span></a>
+				{% if not user.is_authenticated %}
+				<a href="#registro" class="icon solid fa-envelope"><span>Registrar</span></a>
+				{% endif %}
+			</nav>
 				
 				<!-- Main -->
-					<div id="main">
-
-						<!-- Inicio -->
-							<article id="home" class="panel intro">
-								<a >
-									<img class="image fit" src="{% static  'myapp/img/logo1.jpg'%}" alt="" />
-								</a>
-								<header>
-									<h1>TOP's de Entretenimiento </h1>
-									<p>Peliculas y Canciones Populares Calificadas por la Gente</p>
-								</header>
-							</article>
-
-						<!-- Vista Top 100 Peliculas con Modal -->
-							<article id="topmovies" class="panel">
-								<header>
-									<h2>Top 100 Peliculas de Todos los Tiempos</h2>
-								</header>
-								<p id="generico1">
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
-								<section>
-									<div id="" class="row">
-									{% for pelis in peliculas %}
-							
-											<div class='col-6 col-6-medium col-12-small'>
-												<div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
-													<h5 class='card-title'>{{pelis.ranking}} - {{pelis.titulo}}</h5>
-													<img src='{{pelis.image}}' class='card-img-top image fit'>
-													<button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{pelis.ranking}}">
-														Saber Más
-													</button>
-												</div>
-												<div class="modal fade" id="modal_{{pelis.ranking}}" tabindex="-1" aria-hidden="true">
-													<div class="modal-dialog">
-														<div class="modal-content">
-															<div class="modal-header">
-																<h5 class="modal-title">{{pelis.titulo}}</h5>
-																<button  type="button" class="close" data-dismiss="modal" aria-label="Close">
-																	<span aria-hidden="true">&times;</span>
-																</button>
-															</div>
-															<div class="modal-body">
-																Año de Estreno: {{pelis.anio}}<br><br>
-																Genero: {{pelis.id_genero}}<br><br>
-																Calificacion: {{pelis.calificacion}}<br><br>
-																Descripción: {{pelis.descripcion}}
-							
-															</div>
-															<div class="modal-footer">
-																<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-															</div>
-														</div>
+				<div id="main">
+                    <article id="home" class="panel intro">
+						<a >
+							<img class="image fit" src="{% static  'myapp/img/logo1.jpg'%}" alt="" />
+						</a>
+						<header>
+							<h1>TOP's de Entretenimiento </h1>
+							<p>Peliculas y Canciones Populares Calificadas por la Gente</p>
+						</header>
+					</article>
+				
+					<!-- Vista Top 100 Peliculas con Modal -->
+					<article id="topmovies" class="panel">
+						<header>
+							<h2>Top 100 Peliculas de Todos los Tiempos</h2>
+						</header>
+						<p id="generico1">
+							Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+							Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+							luctus elit eget interdum.
+						</p>
+						<section>
+							<div id="" class="row">
+							{% for pelis in peliculas %}
+				
+									<div class='col-6 col-6-medium col-12-small'>
+										<div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
+											<h5 class='card-title'>{{pelis.ranking}} - {{pelis.titulo}}</h5>
+											<img src='{{pelis.image}}' class='card-img-top image fit'>
+											<button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{pelis.ranking}}">
+												Saber Más
+											</button>
+										</div>
+										<div class="modal fade" id="modal_{{pelis.ranking}}" tabindex="-1" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">{{pelis.titulo}}</h5>
+														<button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">
+														Año de Estreno: {{pelis.anio}}<br><br>
+														Genero: {{pelis.id_genero}}<br><br>
+														Calificacion: {{pelis.calificacion}}<br><br>
+														Descripción: {{pelis.descripcion}}
+				
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 													</div>
 												</div>
 											</div>
-							
-									{% endfor %}
+										</div>
 									</div>
-								</section>
-							</article>
-						<!--Lista Top 100 Canciones-->
-							<article id="topsongs" class="panel">
-								<header>
-									<h2>Top 100 Canciones Populares</h2>
-								</header>
-								<p id="generico2">
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
-								<section>
-									<div id="" class="row">
-									{% for canci in cancion %}
-    
-                                            <div class='col-6 col-6-medium col-12-small'>
-                                                <div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
-                                                    <h5 class='card-title'>{{canci.rank}} - {{canci.titulo}}</h5>
-                                                    <img src='{{canci.image}}' class='card-img-top image fit'>
-                                                    <button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{canci.rank}}">
-                                                        Saber Más
-                                                    </button>
-                                                </div>
-                                                <div class="modal fade" id="modal_{{canci.rank}}" tabindex="-1" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">{{canci.titulo}}</h5>
-                                                                <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                Año de Estreno: {{canci.anio}}<br><br>
-                                                                Genero: {{canci.id_musica}}<br><br>
-                                                                Artista: {{canci.artista}}<br><br>
-                                                                Duracion: {{canci.duracion}}
-                            
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                    {% endfor %}
-                                    </div>
-								</section>
-							</article>
-						<!--Panel Vista Nosotros con Carrusel-->
-							<article id="historia" class="panel">
-								<header>
-									<h2>Saber la Historia del Entretenimiento</h2>
-								</header>
-								<p id="generico2">
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
-							</article>
-
-						<!-- Formulario Registro -->
-							<article id="registro" class="panel">
-								<header>
-									<h2>Registro</h2>
-									<p>
-										Subscribase para Recibir Recomendaciones
-									</p>
-								</header>
-								<!--</form>-->
-							</article>
-
-					</div>
-
-				<!-- Pie de Pagina -->
-					<div id="footer">
-						<ul class="copyright">
-							<li>&copy; Formas de Contactarnos: Fono:+123456789 Email:ejemplo1@sinnombre.cl</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</div>
-
-			</div>
-            <script src="{% static 'myapp/js/jquery.min.js'%}" ></script>
-			<script src="{% static 'myapp/js/browser.min.js'%}"></script>
-			<script src="{% static 'myapp/js/breakpoints.min.js'%}"></script>
-			<script src="{% static 'myapp/js/util.js'%}"></script>
-			<script src="{% static 'myapp/js/main.js'%}"></script>
-			<!--<script src="assets/js/script.js"></script>-->
-</body>
-</html>
+				
+							{% endfor %}
+							</div>
+						</section>
+					</article>
+					<!--Lista Top 100 Canciones-->
+					<article id="topsongs" class="panel">
+						<header>
+							<h2>Top 100 Canciones Populares</h2>
+						</header>
+						<p id="generico2">
+							Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+							Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+							luctus elit eget interdum.
+						</p>
+						<section>
+							<div id="" class="row">
+							{% for canci in cancion %}
+				
+									<div class='col-6 col-6-medium col-12-small'>
+										<div class='card' style='background-color:rgb(248, 148, 71) ; border:0'>
+											<h5 class='card-title'>{{canci.rank}} - {{canci.titulo}}</h5>
+											<img src='{{canci.image}}' class='card-img-top image fit'>
+											<button style="color:white; background-color:black; border:0" type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#modal_{{canci.rank}}">
+												Saber Más
+											</button>
+										</div>
+										<div class="modal fade" id="modal_{{canci.rank}}" tabindex="-1" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title">{{canci.titulo}}</h5>
+														<button  type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">
+														Año de Estreno: {{canci.anio}}<br><br>
+														Genero: {{canci.id_musica}}<br><br>
+														Artista: {{canci.artista}}<br><br>
+														Duracion: {{canci.duracion}}
+				
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+				
+							{% endfor %}
+							</div>
+						</section>
+					</article>
+					<!--Panel Vista Nosotros con Carrusel-->
+					<article id="historia" class="panel">
+						<header>
+							<h2>Saber la Historia del Entretenimiento</h2>
+						</header>
+						<p id="generico2">
+							Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
+							Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+							luctus elit eget interdum.
+						</p>
+					</article>
+					<!-- Formulario Registro -->
+					
+					<article id="registro" class="panel">
+						<header>
+							<h2>Registro</h2>
+							<p>
+								Subscribase para Recibir Recomendaciones
+							</p>
+						</header>
+						{% if messages %}
+							<div class="container">
+								<div class="row">
+								<div class="col-md-8 offset-md-2">
+									{% for message in messages %}
+									{% if message.tags == 'error' %}
+										<div class="alert alert-danger alert-dismissible 
+							fade show" role="alert">
+									{% else %}
+										<div class="alert alert-{{ message.tags }} alert- 
+							dismissible fade show" role="alert">
+									{% endif %}
+									{{ message }}
+									<button type="button" class="btn-close" data-bs- 
+							dismiss="alert" aria-label="Close"></button>
+									</div>
+									{% endfor %}
+								</div>
+								</div>
+							</div>
+						{% endif %}
+						<form action="{% url 'registro' %}" method="post">
+							{% csrf_token%}
+							<div class="container">
+								<div class="row">
+									<div class="col-8 col-12-medium">
+										<input id="usuario" type="text" name="usuario" placeholder="Nombre Usuario" required/>
+									</div>
+									<div class="col-8 col-12-medium">
+										<input id="correo" type="email" name="email" placeholder="Correo Electronico" required/>
+									</div>
+									<div class="col-8 col-12-medium">
+										<input id="contrasenia" type="password" name="contrasenia" placeholder="Contraseña" required/>
+									</div>
+									<div class="col-8 col-12-medium">
+										<input id="repcontrasenia" type="password" name="repcontrasenia" placeholder="Contraseña" required/>
+									</div>
+									
+									<div class="col-12">
+										<button id="envio" type="submit" disabled>Enviar</button>
+									</div>
+								</div>
+							</div>
+						</form>
+						<!--</form>-->
+					</article>    
+				</div>
+		<!-- Inicio -->
+<script>
+	$(document).ready(function(){
+		$("#idMensaje").delay(2000).fadeOut("slow");
+	  })
+</script>
+{%endblock%}
